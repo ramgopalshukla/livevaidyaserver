@@ -28,11 +28,11 @@ app.use(express.static(path.join(__dirname, '../Client/client/build')))
 
 
 
-
+connectDB();
 
 // listen port
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`server running on http://localhost:${port}`.bgMagenta.white);
-  connectDB();
+ 
 });
