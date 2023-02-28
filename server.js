@@ -26,13 +26,20 @@ app.use("/api/v1/doctor", require("./routes/docterroutes"));
 app.use(express.static(path.join(__dirname, '../Client/client/build')))
 
 
+const connect= ()=>{
+    setTimeout(()=>{
+      connectDB();
+    }, 3000)
+}
 
 
-connectDB();
+
 
 // listen port
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
-  console.log(`server running on http://localhost:${port}`.bgMagenta.white);
  
-});
+  console.log(`server running on http://localhost:${port}`.bgMagenta.white);
+   connect();
+ 
+})
